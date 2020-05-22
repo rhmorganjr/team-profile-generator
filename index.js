@@ -21,11 +21,13 @@ function createManager(answers) {
 }
 
 function getInput() {
+  let done = false;
   inquirer
     .prompt(managerQuestions)
     .then(answers => {
       createManager(answers);
-      inquirer
+      do {
+        inquirer
       .prompt([
         {
           type: 'list',
@@ -37,6 +39,7 @@ function getInput() {
       .then(choice => {
         console.log(choice);
         if (choice.action === 'finish Team') {
+          done = true;
           writeOutput();
         }
         else if (choice.action === 'Engineer') {
@@ -47,6 +50,7 @@ function getInput() {
           console.log('create Intern');
         }
       });
+      } while (!done);
   });
 }
 
