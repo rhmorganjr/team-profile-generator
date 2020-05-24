@@ -3,7 +3,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require('fs');
-const fileName = 'index.html';
+const fileName = '../dist/index.html';
 
 const managerQuestions = Manager.getQuestions();
 let team = [];
