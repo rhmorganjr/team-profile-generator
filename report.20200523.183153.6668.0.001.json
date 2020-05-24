@@ -4,10 +4,10 @@
     "reportVersion": 2,
     "event": "Allocation failed - JavaScript heap out of memory",
     "trigger": "FatalError",
-    "filename": "report.20200522.160157.4071.0.001.json",
-    "dumpEventTime": "2020-05-22T16:01:57Z",
-    "dumpEventTimeStamp": "1590181317288",
-    "processId": 4071,
+    "filename": "report.20200523.183153.6668.0.001.json",
+    "dumpEventTime": "2020-05-23T18:31:53Z",
+    "dumpEventTimeStamp": "1590276713993",
+    "processId": 6668,
     "threadId": null,
     "cwd": "/Users/morganrh/Desktop/bootcamp/challenges/team-profile-generator",
     "commandLine": [
@@ -50,73 +50,73 @@
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 5364930,
+        "user": 18966230,
         "nice": 0,
-        "sys": 1422480,
-        "idle": 18011000,
+        "sys": 3312120,
+        "idle": 21948690,
         "irq": 0
       },
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 180990,
+        "user": 12367140,
         "nice": 0,
-        "sys": 187870,
-        "idle": 24428740,
+        "sys": 1176350,
+        "idle": 30678450,
         "irq": 0
       },
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 4612780,
+        "user": 18054750,
         "nice": 0,
-        "sys": 1110950,
-        "idle": 19073890,
+        "sys": 2856920,
+        "idle": 23310290,
         "irq": 0
       },
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 197150,
+        "user": 12366640,
         "nice": 0,
-        "sys": 123300,
-        "idle": 24477160,
+        "sys": 1092610,
+        "idle": 30762680,
         "irq": 0
       },
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 4169340,
+        "user": 17458760,
         "nice": 0,
-        "sys": 879660,
-        "idle": 19748610,
+        "sys": 2553410,
+        "idle": 24209780,
         "irq": 0
       },
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 169500,
+        "user": 12343130,
         "nice": 0,
-        "sys": 98300,
-        "idle": 24529810,
+        "sys": 1063440,
+        "idle": 30815360,
         "irq": 0
       },
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 3971320,
+        "user": 17131060,
         "nice": 0,
-        "sys": 671960,
-        "idle": 20154330,
+        "sys": 2293080,
+        "idle": 24797800,
         "irq": 0
       },
       {
         "model": "Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz",
         "speed": 2300,
-        "user": 191470,
+        "user": 12377580,
         "nice": 0,
-        "sys": 66550,
-        "idle": 24539590,
+        "sys": 1023220,
+        "idle": 30821120,
         "irq": 0
       }
     ],
@@ -177,7 +177,7 @@
         "name": "en1",
         "internal": false,
         "mac": "a8:86:dd:a7:a4:e9",
-        "address": "2605:6000:1714:a141:a050:5797:c095:a982",
+        "address": "2605:6000:1714:a141:a408:82db:16e9:4284",
         "netmask": "ffff:ffff:ffff:ffff::",
         "family": "IPv6",
         "scopeid": 0
@@ -281,15 +281,15 @@
       "symbol": "Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit [/usr/local/bin/node]"
     },
     {
-      "pc": "0x00002d5dc9f2ba84",
-      "symbol": ""
+      "pc": "0x00000001008f44d1",
+      "symbol": "Builtins_FastNewObject [/usr/local/bin/node]"
     }
   ],
   "javascriptHeap": {
-    "totalMemory": 2152648704,
-    "totalCommittedMemory": 2151384848,
-    "usedMemory": 2124980600,
-    "availableMemory": 55506912,
+    "totalMemory": 2154598400,
+    "totalCommittedMemory": 2151153112,
+    "usedMemory": 2123604128,
+    "availableMemory": 48097024,
     "memoryLimit": 2197815296,
     "heapSpaces": {
       "read_only_space": {
@@ -300,38 +300,38 @@
         "available": 0
       },
       "new_space": {
-        "memorySize": 2097152,
-        "committedMemory": 1302216,
-        "capacity": 1047456,
-        "used": 317928,
-        "available": 729528
+        "memorySize": 4194304,
+        "committedMemory": 1308832,
+        "capacity": 2094912,
+        "used": 322136,
+        "available": 1772776
       },
       "old_space": {
-        "memorySize": 1855332352,
-        "committedMemory": 1855143944,
-        "capacity": 1842520912,
-        "used": 1833957576,
-        "available": 8563336
+        "memorySize": 1871323136,
+        "committedMemory": 1871074712,
+        "capacity": 1852998480,
+        "used": 1851986040,
+        "available": 1012440
       },
       "code_space": {
         "memorySize": 954368,
-        "committedMemory": 928960,
-        "capacity": 688224,
-        "used": 688224,
+        "committedMemory": 896544,
+        "capacity": 676896,
+        "used": 676896,
         "available": 0
       },
       "map_space": {
-        "memorySize": 283906048,
-        "committedMemory": 283880000,
-        "capacity": 279956320,
-        "used": 279956320,
+        "memorySize": 267128832,
+        "committedMemory": 267104320,
+        "capacity": 259938080,
+        "used": 259938080,
         "available": 0
       },
       "large_object_space": {
-        "memorySize": 10047488,
-        "committedMemory": 10047488,
-        "capacity": 10024960,
-        "used": 10024960,
+        "memorySize": 10686464,
+        "committedMemory": 10686464,
+        "capacity": 10645384,
+        "used": 10645384,
         "available": 0
       },
       "code_large_object_space": {
@@ -344,20 +344,20 @@
       "new_large_object_space": {
         "memorySize": 0,
         "committedMemory": 0,
-        "capacity": 1047456,
+        "capacity": 2094912,
         "used": 0,
-        "available": 1047456
+        "available": 2094912
       }
     }
   },
   "resourceUsage": {
-    "userCpuSeconds": 147.414,
-    "kernelCpuSeconds": 4.6311,
-    "cpuConsumptionPercent": 133.373,
-    "maxRss": 2334264393728,
+    "userCpuSeconds": 292.963,
+    "kernelCpuSeconds": 10.2568,
+    "cpuConsumptionPercent": 60.2823,
+    "maxRss": 2315541020672,
     "pageFaults": {
-      "IORequired": 80,
-      "IONotRequired": 742667
+      "IORequired": 107,
+      "IONotRequired": 718708
     },
     "fsActivity": {
       "reads": 0,

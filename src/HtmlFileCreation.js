@@ -24,14 +24,18 @@ let main = `
 `;
 let bottom = `
   <footer>
-    
+    Dilbert &copy 2020, Andrews McMeel Syndication; 
   </footer>
 </body>
 </html>
 `;
 
-class HtmlFileCreation {
-  constructor(team) {
-    this.team = team;
-  }
+function writeToFile(team) {
+    fs.writeFile(fileName, prefix + bottom, err => {
+      if (err) throw err;
+  
+      console.log('Done');
+    });
 }
+
+module.exports = htmlFileCreation;
