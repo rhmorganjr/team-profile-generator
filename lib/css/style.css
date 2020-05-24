@@ -1,0 +1,11 @@
+.jumbotron {
+  text-align: center;
+  background-color: blue;
+  color: white;
+  border-radius: 0;
+  border-bottom: 10px solid black;
+}
+
+.card-title {
+  background-color: bisque;
+}
