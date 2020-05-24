@@ -4,22 +4,64 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require('fs');
 const fileName = 'index.html';
-//const HtmlFileCreation = require('./src/htmlFileCreation');
 
-const managerQuestions = [
-  { name: 'name', message:"Manager's name?"},
-  { name: 'id', message: "Manager's id?"},
-  { name: 'email', message: "Manager's email address?"},
-  { name: 'officeNumber', message: "Manager's office number?"},
-]
-
+const managerQuestions = Manager.getQuestions();
 let team = [];
 
 function createManager(answers) {
   let manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
   team.push(manager);
 
-  console.log(manager.getOutput());
+  createMembers();
+}
+
+function createEngineer() {
+  const engineerQuestions = Engineer.getQuestions(); 
+  inquirer
+  .prompt(engineerQuestions)
+  .then(answers => {
+    let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+    team.push(engineer);
+  
+    createMembers();
+  });
+}
+
+
+function createIntern() {
+  const internQuestions = Intern.getQuestions();
+  inquirer
+  .prompt(internQuestions)
+  .then(answers => {
+    let intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+    team.push(intern);
+  
+    createMembers();
+  });
+}
+
+function createMembers() {
+  inquirer
+  .prompt([
+  {
+    type: 'list',
+    name: 'action',
+    message: 'Add another employee or finish?',
+    choices: ['Engineer', 'Intern', 'finish Team'],
+  }
+  ])
+  .then(choice => {
+    if (choice.action === 'finish Team') {
+      writeOutput();
+      isDone = true;
+    }
+    else if (choice.action === 'Engineer') {
+      createEngineer();
+    }
+    else if (choice.action === 'Intern') {
+      createIntern();
+    }
+  });
 }
 
 function getInput() {
@@ -28,74 +70,10 @@ function getInput() {
     .prompt(managerQuestions)
     .then(answers => {
       createManager(answers);
-      
-        inquirer
-      .prompt([
-        {
-          type: 'list',
-          name: 'action',
-          message: 'Add another employee or finish?',
-          choices: ['Engineer', 'Intern', 'finish Team'],
-        }
-      ])
-      .then(choice => {
-        console.log(choice);
-        if (choice.action === 'finish Team') {
-          done = true;
-          writeOutput();
-        }
-        else if (choice.action === 'Engineer') {
-          console.log('create Engineer');
-          createEngineer();
-        }
-        else if (choice.action === 'Intern') {
-          console.log('create Intern');
-          createIntern();
-        }
-      });
-        
-  });
-}
-
-function createEngineer() {
-  const engineerQuestions = [
-    { name: 'name', message:"Engineer's name?"},
-    { name: 'id', message: "Engineer's id?"},
-    { name: 'email', message: "Engineer's email address?"},
-    { name: 'github', message: "Engineer's GitHub name?"},
-  ]
-
-  inquirer
-  .prompt(engineerQuestions)
-  .then(answers => {
-    let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-    team.push(engineer);
-  
-    console.log(engineer.getOutput());
-  });
-}
-
-function createIntern() {
-  const internQuestions = [
-    { name: 'name', message:"Intern's name?"},
-    { name: 'id', message: "Intern's id?"},
-    { name: 'email', message: "Intern's email address?"},
-    { name: 'school', message: "Intern's school?"},
-  ]
-
-  inquirer
-  .prompt(internQuestions)
-  .then(answers => {
-    let intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-    team.push(intern);
-  
-    console.log(intern.getOutput());
-  });
+  });  
 }
 
 function writeOutput() {
-
-  console.log("writeOutput");
   let prefix = `
   <!DOCTYPE html>
   <html lang="en">
@@ -119,43 +97,58 @@ function writeOutput() {
     <title>TEAM</title>
   </head>
   <body>
+    <div class='container'>
       <header>
         <h2 class='jumbotron'>Team</h2>
       </header>
+      <div class='row'>
   `;
-  let main = `
-    <main class="main container">
-      <div class="row" id="team">
 
-      </div>    
-    </main>
-  `;
   let bottom = `
-    <footer>
-      Dilbert &copy 2020, Andrews McMeel Syndication; 
-    </footer>
+      </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
   </body>
   </html>
   `;
-  
-  //console.log("team = "+team);
-  let manager = team[0];
-  console.log(manager);
-  let mgr = `<div class='manager col-sm-2 card card-body'>
-      <img class='card-title' src='./lib/img/boss.jpg' />
-      <p class='card-title'>${manager.getName()} - ${manager.getRole()}</p>
-  
-      <p>ID: ${manager.getId()}</p> 
-      <p>Email: ${manager.getEmail()}</p> 
-      <p>Office Number: ${manager.getOfficeNumber()}</p> 
-    </div>
-  `;
-
-
-  fs.writeFile(fileName, prefix + mgr + bottom, err => {
+  let member = ``;
+  for (let i = 0; i < team.length; i++) {
+    if ( team[i].getRole() === 'Manager') {
+      let mbr = `<div class='manager col-sm-3 card card-body'>
+          <p class='card-title'>${team[i].getName()} - ${team[i].getRole()}</p>
+      
+          <p>ID: ${team[i].getId()}</p> 
+          <p>Email: ${team[i].getEmail()}</p> 
+          <p>Office Number: ${team[i].getOfficeNumber()}</p> 
+        </div>
+      `;
+      member += mbr;
+    }
+    else if (team[i].getRole() === 'Engineer') {
+      let mbr = `<div class='engineer col-sm-3 card card-body'>
+          <p class='card-title'>${team[i].getName()} - ${team[i].getRole()}</p>
+      
+          <p>ID: ${team[i].getId()}</p> 
+          <p>Email: ${team[i].getEmail()}</p> 
+          <p>GitHub: ${team[i].getGitHub()}</p> 
+        </div>
+      `;
+      member += mbr;
+    }
+    else if (team[i].getRole() === 'Intern') {
+      let mbr = `<div class='engineer col-sm-3 card card-body'>
+          <p class='card-title'>${team[i].getName()} - ${team[i].getRole()}</p>
+      
+          <p>ID: ${team[i].getId()}</p> 
+          <p>Email: ${team[i].getEmail()}</p> 
+          <p>School: ${team[i].getSchool()}</p> 
+        </div>
+      `;
+      member += mbr;
+    }
+  }
+  fs.writeFile(fileName, prefix + member + bottom, err => {
     if (err) throw err;
     console.log('Done');
   });
