@@ -10,7 +10,7 @@ Download the project from the github link shown below.
 Run 'node index.js' from the terminal command line.
 
 ## Contributors
-None were used.
+None.
 
 ## Tests
 Tests were created using Jest and to run them; after cloning the code, enter 'npm run test' on the command line.
@@ -22,4 +22,4 @@ https://github.com/rhmorganjr/team-profile-generator/tree/master
 ![video](dist/Team-Generator.mp4)
 
 ## HTML Screenshot
-![image](dist/Screen Shot 2020-05-24 at 6.18.57 PM.png)
+![image](dist/team.png)
