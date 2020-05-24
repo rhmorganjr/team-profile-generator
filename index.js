@@ -119,7 +119,7 @@ function writeOutput() {
           <p class='card-title'>${team[i].getName()} - ${team[i].getRole()}</p>
       
           <p>ID: ${team[i].getId()}</p> 
-          <p>Email: ${team[i].getEmail()}</p> 
+          Email: <a href = "mailto:${team[i].getEmail()}">${team[i].getEmail()}</a> 
           <p>Office Number: ${team[i].getOfficeNumber()}</p> 
         </div>
       `;
@@ -130,8 +130,8 @@ function writeOutput() {
           <p class='card-title'>${team[i].getName()} - ${team[i].getRole()}</p>
       
           <p>ID: ${team[i].getId()}</p> 
-          <p>Email: ${team[i].getEmail()}</p> 
-          <p>GitHub: ${team[i].getGitHub()}</p> 
+          Email: <a href = "mailto:${team[i].getEmail()}">${team[i].getEmail()}</a> 
+          GitHub: <a href = "https.github.com/${team[i].getGitHub}">${team[i].getGitHub()}</a> 
         </div>
       `;
       member += mbr;
@@ -141,7 +141,7 @@ function writeOutput() {
           <p class='card-title'>${team[i].getName()} - ${team[i].getRole()}</p>
       
           <p>ID: ${team[i].getId()}</p> 
-          <p>Email: ${team[i].getEmail()}</p> 
+          Email: <a href = "mailto:${team[i].getEmail()}">${team[i].getEmail()}</a> 
           <p>School: ${team[i].getSchool()}</p> 
         </div>
       `;
