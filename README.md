@@ -20,7 +20,7 @@ https://github.com/rhmorganjr/team-profile-generator/tree/master
 
 
 ## Video Link
-![video](http://youtu.be/1crMHAgZKAU)
+![youtube](http://youtu.be/1crMHAgZKAU)
 
 
 ## HTML Screenshot
