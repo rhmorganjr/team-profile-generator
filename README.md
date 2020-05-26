@@ -19,7 +19,7 @@ Tests were created using Jest and to run them; after cloning the code, enter 'np
 https://github.com/rhmorganjr/team-profile-generator/tree/master
 
 ## Video Link
-![video](dist/Team-Generator.mp4)
+![video](https://youtu.be/1crMHAgZKAU)
 
 ## HTML Screenshot
 ![image](dist/team.png)
